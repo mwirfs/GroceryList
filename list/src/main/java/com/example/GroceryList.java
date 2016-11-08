@@ -19,7 +19,18 @@ public class GroceryList
     {
         return groceries.size();
     }
-    
+
+    public String toString()
+    {
+        String s = "";
+
+        for (int i = 0; i < groceries.size(); i++)
+        {
+            s += groceries.get(i) + "\n";
+        }
+
+        return s;
+    }
 
     public void clear()
     {
