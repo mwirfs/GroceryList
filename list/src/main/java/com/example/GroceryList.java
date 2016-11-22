@@ -1,5 +1,6 @@
 package com.example;
 import java.util.*;
+import java.util.Scanner;
 
 public class GroceryList
 {
@@ -8,6 +9,14 @@ public class GroceryList
     public GroceryList()
     {
         groceries = new ArrayList();
+    }
+
+    public void menuchoice()
+    {
+        System.out.println("1. Add item");
+        System.out.println("2. View list");
+        System.out.println("3. Clear list");
+        System.out.println("4. Quit");
     }
 
     public void addItem(String item)
@@ -41,31 +50,66 @@ public class GroceryList
     {
         //Create a new grocery list
         GroceryList myList = new GroceryList();
+        //display menu
+        myList.menuchoice();
+        //get input
+        Scanner menuinput = new Scanner (System.in);
+        int choice = menuinput.nextInt();
 
-        //Add some items
-        myList.addItem("chicken");
-        myList.addItem("eggs");
-        myList.addItem("milk");
-        myList.addItem("bread");
+        /**
+        if (choice == "1")
+        {
+            System.out.println("Enter the item");
+            Scanner iteminput = new Scanner(System.in);
+            String a = iteminput.next();
+            myList.addItem(a);
+            myList.menuchoice();
+        }
+         if (choice == "2")
+         {
+         System.out.println(myList);
+         //Print number of items in list
+         System.out.println("Number of items: " +  myList.numberOfItems() + "\n");
+         myList.menuchoice();
+         }
+         if (choice == "3")
+         {
+         myList.clear();
+         myList.menuchoice();
+         }
+         else if (choice == "4")
+         {
+         System.exit(0);
+         }
+         **/
 
-        //Print out the list
-        System.out.println(myList);
-
-        //Print number of items in list
-        System.out.println("Number of items: " +
-                myList.numberOfItems() + "\n");
-
-        //Clear list
-        myList.clear();
-
-        myList.addItem("cheese");
-        myList.addItem("chips");
-        myList.addItem("salsa");
-
-        System.out.println(myList);
-
-        System.out.println("Number of items: " +
-                myList.numberOfItems());
-
+        while (choice != 4)
+        {
+            switch(choice)
+            {
+                case 1:  //Add some items
+                    System.out.println("Enter the item");
+                    Scanner iteminput = new Scanner(System.in);
+                    String a = iteminput.next();
+                    myList.addItem(a);
+                    myList.menuchoice();
+                    break;
+                case 2: //Print out the list
+                    System.out.println(myList);
+                    //Print number of items in list
+                    System.out.println("Number of items: " + myList.numberOfItems() + "\n");
+                    myList.menuchoice();
+                    break;
+                case 3:     //Clear list
+                    myList.clear();
+                    myList.menuchoice();
+                    break;
+            }
+        }
+        while (choice == 4)
+        {
+            System.exit(0);
+        }
     }
 }
+
